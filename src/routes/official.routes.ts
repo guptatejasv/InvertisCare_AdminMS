@@ -18,6 +18,7 @@ import { updateDeanProfile } from "../controllers/Profile/admin.updateDeanProfil
 import { updateChiefProfile } from "../controllers/Profile/admin.updateChiefProfile";
 import { forgetPassword } from "../controllers/admin.forgetPassword";
 import { resetPassword } from "../controllers/admin.resetPassword";
+import { search } from "../controllers/admin.search";
 
 const router = Router();
 router.post("/admin/secure/login", login);
@@ -52,5 +53,6 @@ router.patch(
   verify_token,
   updateChiefProfile
 );
+router.post("/admin/secure/search", verify_token, search);
 
 export default router;
