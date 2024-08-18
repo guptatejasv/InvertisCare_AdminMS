@@ -16,9 +16,13 @@ import { getDean } from "../controllers/GetUser/admin.Dean";
 import { updateHODProfile } from "../controllers/Profile/admin.updateHODProfile";
 import { updateDeanProfile } from "../controllers/Profile/admin.updateDeanProfile";
 import { updateChiefProfile } from "../controllers/Profile/admin.updateChiefProfile";
+import { forgetPassword } from "../controllers/admin.forgetPassword";
+import { resetPassword } from "../controllers/admin.resetPassword";
 
 const router = Router();
 router.post("/admin/secure/login", login);
+router.post("/admin/secure/forgetPassword", forgetPassword);
+router.patch("/admin/secure/resetPassword/:token", resetPassword);
 router.post("/admin/secure/hodRegistration", verify_token, HodRegister);
 router.post("/admin/secure/deanRegistration", verify_token, DeanRegister);
 router.post("/admin/secure/chiefRegistration", verify_token, ChiefRegister);

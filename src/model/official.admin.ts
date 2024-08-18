@@ -6,6 +6,9 @@ export interface IAdmin extends Document {
   password: string;
   phone?: string;
   role: string;
+  passwordChangedAt?: Date;
+  passwordResetToken?: string;
+  passwordResetExpires?: Date;
 }
 
 const AuthSchema: Schema = new Schema(
@@ -33,6 +36,9 @@ const AuthSchema: Schema = new Schema(
       type: String,
       required: true,
     },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
   },
   {
     timestamps: true,
